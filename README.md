@@ -7,3 +7,9 @@ plugins
 ==
 * should be a class implements multi threading
 * register its handlers(interface to show on dashboard) to the server by the command line
+* now I just code for memcache performance monitor
+
+todo
+=====
+* the dashboard should add json output for a programing interface for other systems
+* should suppert more then one plugin to register
