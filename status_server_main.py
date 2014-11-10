@@ -4,18 +4,18 @@ from status_server import StatusServer
 import plugins
 from plugins import *
 import time
-from base.gflags import *
+from gflags import *
 import daemon
 from daemon import pidfile
 import sys
 import os.path
-from hope.utils.customlog import *
+import logging
 
 #TODO: add logger
 #TODO: add json output
 #TODO: support multi memcached, the feature of plugin
 
-logger = None
+logger = logging.logger(__file__)
 
 def run():
     """init status server, and run in a dead loop """

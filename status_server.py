@@ -16,8 +16,6 @@ from SocketServer import ThreadingMixIn
 import logging
 import plugins
 from plugins import *
-from hope.utils.zk.yrns import YRNSManager
-from hope.utils.customlog import *
 
 def ConvertBytes(n):
     K, M, G, T = 1 << 10, 1 << 20, 1 << 30, 1 << 40
@@ -206,23 +204,3 @@ class StatusServer(threading.Thread):
                     html += exception_format_ % (WHITESPACE, WHITESPACE, stat)
         html += NEWLINE
         return html
-
-    def __RegisterYRNS(self):
-        self.logger.info('start register yrns path')
-        try:
-            self.yrns_full_path = os.path.join(self.yrns_path, str(self.shard_id))
-            self.logger.info(self.yrns_full_path)
-
-            if(self.yrns_manager is None):
-                self.yrns_manager = YRNSManager()
-            self.yrns_manager.Register(
-                    self.yrns_full_path,
-                    self.replica_id,
-                    self.yrns_manager.SERVICE_MONITOR,
-                    self.port,
-                    auto_delete = True
-                    )
-        except Exception,ex:
-            self.logger.error(ex)
-
-
