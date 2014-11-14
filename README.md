@@ -11,5 +11,5 @@ plugins
 
 todo
 =====
-* the dashboard should add json output for a programing interface for other systems
-* should suppert more then one plugin to register
+* add json interface for other systems
+* should support more than one plugin to register and monitor
